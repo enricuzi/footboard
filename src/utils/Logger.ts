@@ -1,18 +1,15 @@
-import { getComponentName } from './index'
-import { ComponentRef } from '../type-defs'
-
 export type Logger = {
 	log: (...logs: Array<unknown>) => void,
 	error: (...logs: Array<unknown>) => void
 }
 
-export const useLogger = (component: ComponentRef = '', ...props: Array<unknown>): Logger => {
+export const useLogger = (component = '', ...props: Array<unknown>): Logger => {
 	return {
 		log: (...logs: Array<unknown>) => {
-			LoggerUtils.log(getComponentName(component), ...props, ...logs)
+			LoggerUtils.log(component, ...props, ...logs)
 		},
 		error: (...logs: Array<unknown>) => {
-			LoggerUtils.error(getComponentName(component), ...props, ...logs)
+			LoggerUtils.error(component, ...props, ...logs)
 		}
 	}
 }

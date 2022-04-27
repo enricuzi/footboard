@@ -1,8 +1,7 @@
 import { Ctx } from 'boardgame.io'
-import plugins from './plugins'
-import moves from './moves'
-import { useLogger } from '../utils'
 import { Client } from 'boardgame.io/react'
+import { GameController } from './game'
+import { BoardController } from './board'
 
 interface Deck {
   number: number
@@ -14,17 +13,10 @@ export interface GameState {
 
 export type GameContext = Ctx
 
-const { log, error } = useLogger('GameController')
-
-const GameController = (gameState: GameState) => ({
-  setup: (ctx: GameContext): GameState => {
-    log('setup')
-    return gameState
-  },
-  moves,
-  plugins
-})
-
-export const GameClient = (gameState: GameState) => Client({
-  game: GameController(gameState)
-})
+export const GameClient = (gameState: GameState) => {
+  console.log('GameClient', 'create')
+  return Client({
+    game: GameController(gameState),
+    board: BoardController
+  })
+}

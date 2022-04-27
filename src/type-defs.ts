@@ -4,4 +4,8 @@ export type ComponentRef = string | ComponentClass
 
 export type Callback = (data: unknown) => void
 
-export type UiEvent = { component: string, callback: Callback }
+export type MaybeNull<T> = T | null
+
+export type MaybeUndefined<T> = T | undefined
+
+export type MaybeExists<T> = T | null | undefined
