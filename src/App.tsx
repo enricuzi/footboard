@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './App.css'
-import { GameClient, GameState } from './client'
 import GameService from './services/GameService'
 import { useLogger } from './utils'
+import { GameClient, GameState } from './client'
 
 const App = () => {
   const [gameState, setGameState] = useState(null as unknown as GameState)
 
   const { log } = useLogger(App.name)
+
+  const loadGame = useCallback(() => {
+    const AppClient = GameClient(gameState)
+    return <AppClient matchID={'MatchTest'} playerID={'Player1'}/>
+  }, [gameState])
 
   useEffect(() => {
     async function loadGameState() {
@@ -23,7 +28,7 @@ const App = () => {
   return <div>
     {
       gameState ?
-        <GameClient gameState={gameState}/> :
+        loadGame():
         <div>Loading Data</div>
     }
   </div>

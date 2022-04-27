@@ -1,4 +1,3 @@
-import React from 'react'
 import { Ctx } from 'boardgame.io'
 import plugins from './plugins'
 import moves from './moves'
@@ -26,10 +25,6 @@ const GameController = (gameState: GameState) => ({
   plugins
 })
 
-export const GameClient = ({ gameState }: { gameState: GameState }) => {
-  const ClientUI = Client({
-    game: GameController(gameState),
-  })
-
-  return <ClientUI playerID={'first-player'}/>
-}
+export const GameClient = (gameState: GameState) => Client({
+  game: GameController(gameState)
+})
