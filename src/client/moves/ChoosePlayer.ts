@@ -1,6 +1,7 @@
 import { GameContext, GameState } from '../index'
-import { Logger } from '../../utils/Logger'
+import { useLogger } from '../../utils'
 
-export const ChoosePlayers = ({ log, error }: Logger) => (G: GameState, ctx: GameContext) => {
+export const ChoosePlayers = (G: GameState, ctx: GameContext) => {
+  const { log, error } = useLogger(ChoosePlayers.name)
   log('Choosing the players')
 }

@@ -1,7 +1,8 @@
 import { GameContext, GameState } from '../index'
-import { Logger } from '../../utils/Logger'
+import { useLogger } from '../../utils'
 
-export const Draw = ({ log, error }: Logger) => (G: GameState, ctx: GameContext, deckType: string) => {
+export const Draw = (G: GameState, ctx: GameContext, deckType: string) => {
+  const { log, error } = useLogger(Draw.name)
   log('Drawing card from deck', deckType)
   const deck = G.decks[deckType]
   if (deck.number <= 0) {
