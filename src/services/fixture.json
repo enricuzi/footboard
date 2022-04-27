@@ -1,0 +1,13 @@
+{
+  "decks": {
+    "events": {
+      "number": 100
+    },
+    "actions": {
+      "number": 100
+    },
+    "players": {
+      "number": 100
+    }
+  }
+}
