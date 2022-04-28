@@ -1,32 +1,24 @@
-import { getRandom } from '../../utils'
-import {PluginApi, PluginSetup } from '.'
-import { GameContext, GameState } from '../index'
-import { BasePlugin } from './common'
+import { Card } from '../index'
+import { useLogger } from '../../utils'
+import { Plugin } from 'boardgame.io'
 
-class PlayerPlugin extends BasePlugin {
-	create() {
-	  const log = this.log
-		const name = this.name
-		return {
-	  	name,
-			setup: ({ G, ctx, game }: PluginSetup) => {
-				log('setup', G, ctx, game, { status: 'IDLE', moves: 0 })
-				return {
-					id: getRandom(1000),
-					status: 'IDLE',
-					moves: 0,
-					countMoves(G: GameState, ctx: GameContext) {
-						log('CountMoves', ctx.numMoves)
-						return ctx.numMoves
-					}
-				}
-			},
-			api: ({ G, ctx, game, data, playerID }: PluginApi) => {
-				log('Player api', { G, ctx, game, data, playerID })
-				return {}
-			}
-		}
-	}
+type PlayerState = {
+	hand: Array<Card>,
+	cards: Array<Card>
 }
 
-export default new PlayerPlugin('PlayerPlugin').create()
+function PlayerPlugin(): Plugin {
+	  const { log } = useLogger('PlayerPlugin')
+		return {
+	  	name: 'PlayerPlugin',
+			setup ({ G, ctx, game }): PlayerState {
+				log('setup', G, ctx, game)
+				return {
+					hand: [],
+					cards: []
+				}
+			}
+		}
+}
+
+export default PlayerPlugin()

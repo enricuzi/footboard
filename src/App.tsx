@@ -10,6 +10,7 @@ const App = () => {
   const { log } = useLogger(App.name)
 
   const loadGame = useCallback(() => {
+    log('Loading AppClient')
     const AppClient = GameClient(gameState)
     return <AppClient matchID={'MatchTest'} playerID={'Player1'}/>
   }, [gameState])

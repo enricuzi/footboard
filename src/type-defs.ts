@@ -9,3 +9,5 @@ export type MaybeNull<T> = T | null
 export type MaybeUndefined<T> = T | undefined
 
 export type MaybeExists<T> = T | null | undefined
+
+export type MaybeEmpty<Array> = Array | []
