@@ -5,7 +5,7 @@ class GameService {
     data: GameState
 
     constructor () {
-      this.data = fixture
+      this.data = fixture as GameState
     }
 
     async save (data: GameState) {
@@ -14,7 +14,7 @@ class GameService {
 
     async load () {
       if (!this.data) {
-        this.data = fixture
+        this.data = fixture as GameState
       }
       return this.data
     }

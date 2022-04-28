@@ -26,7 +26,7 @@ export default {
 			error('No cards to draw from deck', phaseDeck)
 			return null
 		}
-		return deck.cards.pop()
+		return deck.cards[0]
 	},
 	[Moves.CHOOSE_PLAYERS]: (G, ctx) => {
 		const { log, error } = useLogger('ChoosePlayers')

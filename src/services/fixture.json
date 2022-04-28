@@ -1,13 +1,49 @@
 {
   "decks": {
     "events": {
-      "cards": []
+      "cards": [{
+        "type": "event",
+        "description": "card 1"
+      }, {
+        "type": "event",
+        "description": "card 2"
+      }, {
+        "type": "event",
+        "description": "card 3"
+      }, {
+        "type": "event",
+        "description": "card 4"
+      }]
     },
     "actions": {
-      "cards": []
+      "cards": [{
+        "type": "action",
+        "description": "card 1"
+      }, {
+        "type": "action",
+        "description": "card 2"
+      }, {
+        "type": "action",
+        "description": "card 3"
+      }, {
+        "type": "action",
+        "description": "card 4"
+      }]
     },
     "players": {
-      "cards": []
+      "cards": [{
+        "type": "player",
+        "description": "card 1"
+      }, {
+        "type": "player",
+        "description": "card 2"
+      }, {
+        "type": "player",
+        "description": "card 3"
+      }, {
+        "type": "player",
+        "description": "card 4"
+      }]
     }
   }
 }

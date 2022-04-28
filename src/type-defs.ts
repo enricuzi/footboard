@@ -54,7 +54,6 @@ export const PhaseState = {
 
 export type GameState = {
   decks: Record<DeckType, Deck>
-  deck?: DeckType
 }
 
 export type GameContext = Ctx & {
