@@ -1,6 +1,5 @@
 import React from 'react'
-import { GameContext } from '../index'
-import { MaybeNull } from '../../type-defs'
+import { GameContext, MaybeNull } from '../../type-defs'
 import { useLogger } from '../../utils'
 import { BoardComponent } from '../../ui/board.component'
 

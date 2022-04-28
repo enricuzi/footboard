@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import './App.css'
 import GameService from './services/GameService'
 import { useLogger } from './utils'
-import { GameClient, GameState } from './client'
+import { GameClient } from './client'
+import { GameState } from './type-defs'
 
 const App = () => {
   const [gameState, setGameState] = useState(null as unknown as GameState)
@@ -10,9 +11,9 @@ const App = () => {
   const { log } = useLogger(App.name)
 
   const loadGame = useCallback(() => {
-    log('Loading AppClient')
+    log('Loading AppClient', gameState)
     const AppClient = GameClient(gameState)
-    return <AppClient matchID={'MatchTest'} playerID={'Player1'}/>
+    return <AppClient matchID={'MatchTest'}/>
   }, [gameState])
 
   useEffect(() => {

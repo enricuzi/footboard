@@ -1,5 +1,5 @@
-import { GameState } from '../client'
 import fixture from './fixture.json'
+import { GameState } from '../type-defs'
 
 class GameService {
     data: GameState

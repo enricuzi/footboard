@@ -1,6 +1,6 @@
-import { Card } from '../index'
 import { useLogger } from '../../utils'
 import { Plugin } from 'boardgame.io'
+import { Card } from '../../type-defs'
 
 type PlayerState = {
 	hand: Array<Card>,
