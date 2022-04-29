@@ -1,4 +1,3 @@
-import { useLogger } from '../../utils'
 import { MoveMap } from 'boardgame.io'
 import { GameContext, GameState, MaybeReturn } from '../../type-defs'
 import { DrawCard } from './DrawCard'
@@ -10,10 +9,10 @@ export enum Moves {
 }
 
 export default {
-	[Moves.DRAW_CARD] (G, ctx): MaybeReturn<GameState> {
+	[Moves.DRAW_CARD]: (G, ctx): MaybeReturn<GameState> => {
 		DrawCard(G, ctx)
 	},
-	[Moves.CHOOSE_PLAYERS] (G, ctx) {
-		ChoosePlayers()
+	[Moves.CHOOSE_PLAYERS]: (G, ctx) => {
+		ChoosePlayers(G, ctx)
 	}
 } as MoveMap<GameState, GameContext>

@@ -1,6 +1,5 @@
 import { Card, GameContext, GameState, MaybeExists, StageMapping, StageType } from '../../type-defs'
 import { useLogger } from '../../utils'
-import { Move } from 'boardgame.io'
 
 const getCardFromStage = (G: GameState, ctx: GameContext): MaybeExists<Card> => {
   const { log, error } = useLogger('DrawCard')
@@ -27,7 +26,7 @@ const getCardFromStage = (G: GameState, ctx: GameContext): MaybeExists<Card> => 
   return deck.cards.pop()
 }
 
-export const DrawCard: Move<GameState, GameContext> = (G, ctx) => {
+export const DrawCard = (G: GameState, ctx: GameContext) => {
   const card = getCardFromStage(G, ctx)
   if (card) {
     ctx.events?.endStage()

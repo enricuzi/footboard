@@ -36,6 +36,12 @@ export enum StageType {
   CHOOSE_PLAYERS = 'ChoosePlayers'
 }
 
+export enum PhaseType {
+  START_MATCH = 'StartMatch',
+  MIDDLE_TIME = 'MiddleTime',
+  END_MATCH = 'EndMatch'
+}
+
 export const StageMapping = {
   [StageType.DRAW_EVENT]: {
     cardType: CardType.EVENT,
