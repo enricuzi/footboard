@@ -1,6 +1,11 @@
 {
+  "hand": {
+    "event": null,
+    "action": null,
+    "player": null
+  },
   "decks": {
-    "events": {
+    "event": {
       "cards": [{
         "type": "event",
         "description": "card 1"
@@ -15,7 +20,7 @@
         "description": "card 4"
       }]
     },
-    "actions": {
+    "action": {
       "cards": [{
         "type": "action",
         "description": "card 1"
@@ -30,7 +35,7 @@
         "description": "card 4"
       }]
     },
-    "players": {
+    "player": {
       "cards": [{
         "type": "player",
         "description": "card 1"

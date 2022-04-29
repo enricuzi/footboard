@@ -13,16 +13,12 @@ export type MaybeExists<T> = T | null | undefined
 
 export type MaybeEmpty<Array> = Array | []
 
+export type MaybeReturn<T> = T | void
+
 export enum CardType {
   ACTION = 'action',
   EVENT = 'event',
   PLAYER = 'player'
-}
-
-export enum DeckType {
-  ACTIONS = 'actions',
-  EVENTS = 'events',
-  PLAYERS = 'players'
 }
 
 export interface Card {
@@ -34,29 +30,31 @@ export type Deck = {
   cards: MaybeEmpty<Array<Card>>
 }
 
-export enum PhaseType {
+export enum StageType {
   DRAW_EVENT = 'DrawEvent',
   DRAW_ACTION = 'DrawAction',
   CHOOSE_PLAYERS = 'ChoosePlayers'
 }
 
-export const PhaseState = {
-  [PhaseType.DRAW_EVENT]: {
-    deck: DeckType.EVENTS
+export const StageMapping = {
+  [StageType.DRAW_EVENT]: {
+    cardType: CardType.EVENT,
   },
-  [PhaseType.DRAW_ACTION]: {
-    deck: DeckType.ACTIONS
+  [StageType.DRAW_ACTION]: {
+    cardType: CardType.ACTION
   },
-  [PhaseType.CHOOSE_PLAYERS]: {
-    deck: DeckType.PLAYERS
+  [StageType.CHOOSE_PLAYERS]: {
+    cardType: CardType.PLAYER
   }
 }
 
 export type GameState = {
-  decks: Record<DeckType, Deck>
+  decks: Record<CardType, Deck>
+  hand: Record<CardType, MaybeExists<Card>>
+  stage: StageType,
 }
 
 export type GameContext = Ctx & {
-  deck?: DeckType
+  deck?: CardType
   PlayerPlugin?: Plugin
 }
