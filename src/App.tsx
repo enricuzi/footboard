@@ -1,39 +1,37 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import './App.css'
+import { useEvents } from './utils'
 import GameService from './services/GameService'
-import { useLogger } from './utils'
+import { EventType, GameState } from './types/type-defs'
 import { GameClient } from './client'
-import { GameState } from './type-defs'
 
-const App = () => {
+function App() {
   const [gameState, setGameState] = useState(null as unknown as GameState)
 
-  const { log } = useLogger(App.name)
-
-  const loadGame = useCallback(() => {
-    log('Loading AppClient', gameState)
-    const AppClient = GameClient(gameState)
-    return <AppClient matchID={'MatchTest'}/>
-  }, [gameState])
-
-  useEffect(() => {
-    async function loadGameState() {
-      const gameService = new GameService()
-      return await gameService.load()
-    }
-    loadGameState().then((data) => {
-      log('Loaded gameState', data)
-      setGameState(data)
-    })
+  const loadGameState = useCallback(async () => {
+    const gameService = new GameService()
+    return await gameService.load()
   }, [])
 
-  return <div>
-    {
-      gameState ?
-        loadGame():
-        <div>Loading Data</div>
-    }
-  </div>
+  const createAppClient = useCallback(() => {
+    return <GameClient/>
+  }, [gameState])
+
+  const { trigger } = useEvents(App.name)
+
+  useEffect(() => {
+    loadGameState().then((gameState) => {
+      console.log('Loaded gameState', gameState)
+      setGameState(gameState)
+      trigger(EventType.DATA_LOADED, gameState)
+    })
+  }, [loadGameState])
+
+  return (
+    <div className="App">
+      { gameState ? <div className={'client-container'}>{ createAppClient() }</div> : null }
+    </div>
+  )
 }
 
 export default App

@@ -8,46 +8,46 @@
     "event": {
       "cards": [{
         "type": "event",
-        "description": "card 1"
+        "name": "card 1"
       }, {
         "type": "event",
-        "description": "card 2"
+        "name": "card 2"
       }, {
         "type": "event",
-        "description": "card 3"
+        "name": "card 3"
       }, {
         "type": "event",
-        "description": "card 4"
+        "name": "card 4"
       }]
     },
     "action": {
       "cards": [{
         "type": "action",
-        "description": "card 1"
+        "name": "card 1"
       }, {
         "type": "action",
-        "description": "card 2"
+        "name": "card 2"
       }, {
         "type": "action",
-        "description": "card 3"
+        "name": "card 3"
       }, {
         "type": "action",
-        "description": "card 4"
+        "name": "card 4"
       }]
     },
     "player": {
       "cards": [{
         "type": "player",
-        "description": "card 1"
+        "name": "card 1"
       }, {
         "type": "player",
-        "description": "card 2"
+        "name": "card 2"
       }, {
         "type": "player",
-        "description": "card 3"
+        "name": "card 3"
       }, {
         "type": "player",
-        "description": "card 4"
+        "name": "card 4"
       }]
     }
   }
