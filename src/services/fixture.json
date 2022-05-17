@@ -1,53 +1,89 @@
 {
-  "hand": {
-    "event": null,
-    "action": null,
-    "player": null
-  },
-  "decks": {
-    "event": {
-      "cards": [{
-        "type": "event",
-        "name": "card 1"
+  "hand": [],
+  "decks": [{
+    "type": "EVENT", "effect": "effect", "description": null,
+    "cards": [{
+      "type": "EVENT", "effect": "effect", "description": null,
+      "name": "card 1"
+    }, {
+      "type": "EVENT", "effect": "effect", "description": null,
+      "name": "card 2"
+    }, {
+      "type": "EVENT", "effect": "effect", "description": null,
+      "name": "card 3"
+    }, {
+      "type": "EVENT", "effect": "effect", "description": null,
+      "name": "card 4"
+    }]
+  }, {
+    "type": "ACTION",
+    "cards": [{
+      "type": "ACTION", "effect": "effect", "description": null,
+      "name": "card 1"
+    }, {
+      "type": "ACTION", "effect": "effect", "description": null,
+      "name": "card 2"
+    }, {
+      "type": "ACTION", "effect": "effect", "description": null,
+      "name": "card 3"
+    }, {
+      "type": "ACTION", "effect": "effect", "description": null,
+      "name": "card 4"
+    }]
+  }, {
+    "type": "PLAYER",
+    "cards": [{
+      "type": "PLAYER", "effect": "effect", "description": null,
+      "name": "card 1"
+    }, {
+      "type": "PLAYER", "effect": "effect", "description": null,
+      "name": "card 2"
+    }, {
+      "type": "PLAYER", "effect": "effect", "description": null,
+      "name": "card 3"
+    }, {
+      "type": "PLAYER", "effect": "effect", "description": null,
+      "name": "card 4"
+    }]
+  }],
+  "match": {
+    "field": {
+      "zones": [{
+        "type": "GOAL_AREA",
+        "subZones": [{
+          "player": "PLAYER_1",
+          "cards": []
+        }, {
+          "player": "PLAYER_2",
+          "cards": []
+        }]
       }, {
-        "type": "event",
-        "name": "card 2"
+        "type": "DEFENCE",
+        "subZones": [{
+          "player": "PLAYER_1",
+          "cards": []
+        }, {
+          "player": "PLAYER_2",
+          "cards": []
+        }]
       }, {
-        "type": "event",
-        "name": "card 3"
+        "type": "MIDDLE",
+        "subZones": [{
+          "player": "PLAYER_1",
+          "cards": []
+        }, {
+          "player": "PLAYER_2",
+          "cards": []
+        }]
       }, {
-        "type": "event",
-        "name": "card 4"
-      }]
-    },
-    "action": {
-      "cards": [{
-        "type": "action",
-        "name": "card 1"
-      }, {
-        "type": "action",
-        "name": "card 2"
-      }, {
-        "type": "action",
-        "name": "card 3"
-      }, {
-        "type": "action",
-        "name": "card 4"
-      }]
-    },
-    "player": {
-      "cards": [{
-        "type": "player",
-        "name": "card 1"
-      }, {
-        "type": "player",
-        "name": "card 2"
-      }, {
-        "type": "player",
-        "name": "card 3"
-      }, {
-        "type": "player",
-        "name": "card 4"
+        "type": "ATTACK",
+        "subZones": [{
+          "player": "PLAYER_1",
+          "cards": []
+        }, {
+          "player": "PLAYER_2",
+          "cards": []
+        }]
       }]
     }
   }

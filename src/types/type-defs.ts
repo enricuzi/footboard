@@ -59,8 +59,8 @@ export type Board = {
 }
 
 export type GameState = {
-  decks: Record<CardType, Deck>
-  hands: MaybeExists<Record<PlayerType, Record<CardType, MaybeExists<Card>>>>
+  decks: Array<Deck>
+  hand: MaybeEmpty<Array<Card>>
   match: MaybeExists<Match>
 }
 

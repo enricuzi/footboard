@@ -6,32 +6,32 @@ import { EventType, GameState } from './types/type-defs'
 import { GameClient } from './client'
 
 function App() {
-  const [gameState, setGameState] = useState(null as unknown as GameState)
+	const [gameState, setGameState] = useState(null as unknown as GameState)
 
-  const loadGameState = useCallback(async () => {
-    const gameService = new GameService()
-    return await gameService.load()
-  }, [])
+	const loadGameState = useCallback(async () => {
+		const gameService = new GameService()
+		return await gameService.load()
+	}, [])
 
-  const createAppClient = useCallback(() => {
-    return <GameClient decks={gameState.decks} hands={null} match={gameState.match}/>
-  }, [gameState])
+	const createAppClient = useCallback(() => {
+		return <GameClient decks={gameState.decks} hand={[]} match={gameState.match}/>
+	}, [gameState])
 
-  const { trigger } = useEvents(App.name)
+	const { trigger } = useEvents(App.name)
 
-  useEffect(() => {
-    loadGameState().then((gameState) => {
-      console.log('Loaded gameState', gameState)
-      setGameState(gameState)
-      trigger(EventType.DATA_LOADED, gameState)
-    })
-  }, [loadGameState])
+	useEffect(() => {
+		loadGameState().then((gameState) => {
+			console.log('Loaded gameState', gameState)
+			setGameState(gameState)
+			trigger(EventType.DATA_LOADED, gameState)
+		})
+	}, [loadGameState])
 
-  return (
-    <div className="App">
-      { gameState ? <div className={'client-container'}>{ createAppClient() }</div> : null }
-    </div>
-  )
+	return (
+		<div className="App">
+			{ gameState ? <div className={'client-container'}>{ createAppClient() }</div> : null }
+		</div>
+	)
 }
 
 export default App
