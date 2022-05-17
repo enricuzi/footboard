@@ -1,15 +1,12 @@
 import React from 'react'
-import { InferProps } from 'prop-types'
 import { CardComponent } from '../card/card.component'
-import { Deck } from '../../../types/prop-types'
+import { Deck } from '../../../types/type-defs'
 
-export const DeckComponent = ({ cards }: InferProps<typeof Deck.Props>) => {
+export const DeckComponent = ({ cards, type }: Deck) => {
   return <div className={'deck'}>
+    <span>{type}</span>
     {
-      cards.map((card, i) => <CardComponent key={i} type={card.type} effect={card.effect} name={card.name}/>)
+      cards.map((card, i) => <CardComponent key={i} type={card.type} effect={card.effect} name={card.name} description={card.description}/>)
     }
   </div>
 }
-
-DeckComponent.propTypes = Deck.Props
-DeckComponent.defaultProps = Deck.Default

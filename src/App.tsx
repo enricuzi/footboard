@@ -14,7 +14,7 @@ function App() {
   }, [])
 
   const createAppClient = useCallback(() => {
-    return <GameClient/>
+    return <GameClient decks={gameState.decks} hands={null} match={gameState.match}/>
   }, [gameState])
 
   const { trigger } = useEvents(App.name)

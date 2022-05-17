@@ -1,16 +1,15 @@
 import React from 'react'
-import { InferProps } from 'prop-types'
 import './card.component.css'
-import { Card } from '../../../types/prop-types'
+import { Card } from '../../../types/type-defs'
 
-export const CardComponent = ({ name, type, effect }: InferProps<typeof Card.Props>) => {
-  console.log('Drawing card', { name, type, effect })
+export const CardComponent = ({ effect, type, name, description }: Card) => {
+  console.log('Drawing card', { effect, type, name, description })
   return <div className={'card'}>
-    <title>{name}</title>
-    <i>{type}</i>
-    <p>{effect}</p>
+    <div className={'content'}>
+      <title>{name}</title>
+      <i>{type}</i>
+      <p>{effect}</p>
+      <p>{description}</p>
+    </div>
   </div>
 }
-
-CardComponent.propTypes = Card.Props
-CardComponent.defaultProps = Card.Default
