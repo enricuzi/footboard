@@ -24,6 +24,7 @@ export enum EventType {
   DATA_LOADED = 'DATA_LOADED',
   START_MATCH = 'START_MATCH',
   END_MATCH = 'END_MATCH',
+  CARD_CLICKED = 'CARD_CLICKED'
 }
 
 export enum CardType {
@@ -44,11 +45,19 @@ export enum ZoneType {
   ATTACK = 'ATTACK'
 }
 
+export enum FlipStatus {
+  NONE = 'NONE',
+  FLIPPED = 'FLIPPED',
+  BLOCKED = 'BLOCKED'
+}
+
 export type Card = {
+  id: string
   name: string
   type: CardType
   effect: MaybeExists<EffectType>
   description: MaybeExists<string>
+  flip: MaybeExists<FlipStatus>
 }
 
 export type Deck = {
@@ -57,7 +66,8 @@ export type Deck = {
 }
 
 export type Board = {
-  cards: MaybeEmpty<Array<Card>>
+  match: MaybeExists<Match>
+  decks: Array<Deck>
 }
 
 export type GameState = {

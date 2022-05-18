@@ -1,13 +1,19 @@
 import React from 'react'
 import './board.component.css'
-import { CardComponent } from '../card/card.component'
 import { Board } from '../../../types/type-defs'
+import { DeckComponent } from '../deck/deck.component'
+import { MatchComponent } from '../match/match.component'
 
-export const BoardComponent = ({ cards }: Board) => {
-	console.log('Drawing board', { cards })
+export const BoardComponent = ({ decks, match }: Board) => {
+	console.log('Drawing board', { decks, match })
 	return <div className={'board'}>
+		<div className={'decks'}>
+			{
+				decks.map((deck, i) => <DeckComponent key={i} type={deck.type} cards={deck.cards}/>)
+			}
+		</div>
 		{
-			cards.map((card, i) => <CardComponent key={i} type={card.type} effect={card.effect} name={card.name} description={card.description}/>)
+			match ? <MatchComponent field={match.field}/> : null
 		}
 	</div>
 }

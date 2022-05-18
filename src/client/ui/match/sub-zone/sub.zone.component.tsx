@@ -1,13 +1,15 @@
 import React from 'react'
 import './sub.zone.component.css'
 import { CardComponent } from '../../card/card.component'
-import { Card, CardType, EffectType, SubZone } from '../../../../types/type-defs'
+import { Card, CardType, SubZone } from '../../../../types/type-defs'
 
 const NoCard: Card = {
+	id: '',
 	name: '',
 	type: CardType.NONE,
 	effect: null,
-	description: null
+	description: null,
+	flip: null
 }
 
 export const SubZoneComponent = ({ player, cards }: SubZone) => {
@@ -19,7 +21,7 @@ export const SubZoneComponent = ({ player, cards }: SubZone) => {
 		<span>{player}</span>
 		<div className={'cards'}>
 			{
-				cards.map((card, i) => <CardComponent key={i} type={card.type} effect={card.effect} name={card.name} description={card.description}/>)
+				cards.map((card, i) => <CardComponent key={i} id={card.id} flip={null} type={card.type} effect={card.effect} name={card.name} description={card.description}/>)
 			}
 		</div>
 	</div>

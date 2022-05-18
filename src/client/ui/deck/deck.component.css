@@ -1,0 +1,12 @@
+.deck {
+}
+
+.deck .list {
+    position: relative;
+    height: 200px;
+    width: 100px;
+}
+
+.deck .item {
+    position: absolute;
+}
