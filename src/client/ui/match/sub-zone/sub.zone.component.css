@@ -1,0 +1,8 @@
+.sub-zone {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-zone .cards {
+    display: flex;
+}

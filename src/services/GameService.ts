@@ -4,7 +4,9 @@ import { GameState } from '../types/type-defs'
 class GameService {
 	data: GameState
 
-	constructor () {this.data = fixture as GameState}
+	constructor () {
+		this.data = fixture as GameState
+	}
 
 	async save (data: GameState) {
 		this.data = data

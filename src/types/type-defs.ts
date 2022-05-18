@@ -6,7 +6,7 @@ export type MaybeUndefined<T> = T | undefined
 
 export type MaybeExists<T> = T | null | undefined
 
-export type MaybeEmpty<Array> = Array | []
+export type MaybeEmpty<Array> = Array | any[]
 
 export type MaybeReturn<T> = T | void
 
@@ -19,7 +19,6 @@ export enum PlayerType {
   PLAYER_1 = 'PLAYER_1',
   PLAYER_2 = 'PLAYER_2',
 }
-export const PlayerTypes = Object.values(PlayerType)
 
 export enum EventType {
   DATA_LOADED = 'DATA_LOADED',
@@ -28,11 +27,15 @@ export enum EventType {
 }
 
 export enum CardType {
+  NONE = 'NONE',
   ACTION = 'ACTION',
   EVENT = 'EVENT',
   PLAYER = 'PLAYER'
 }
-export const CardTypes = Object.values(CardType)
+
+export enum EffectType {
+  NONE = 'NONE'
+}
 
 export enum ZoneType {
   GOAL_AREA = 'GOAL_AREA',
@@ -40,12 +43,11 @@ export enum ZoneType {
   MIDDLE = 'MIDDLE',
   ATTACK = 'ATTACK'
 }
-export const ZoneTypes = Object.values(ZoneType)
 
 export type Card = {
   name: string
   type: CardType
-  effect: MaybeExists<string>
+  effect: MaybeExists<EffectType>
   description: MaybeExists<string>
 }
 

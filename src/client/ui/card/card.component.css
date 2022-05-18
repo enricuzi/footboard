@@ -1,9 +1,14 @@
 .card {
+    position: relative;
     border: 1px solid black;
     border-radius: 5px;
     width: 100px;
     height: 200px;
     overflow: auto;
+}
+
+.card.none {
+    border-style: dashed;
 }
 
 .card .content {
